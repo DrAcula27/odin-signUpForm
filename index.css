@@ -1,0 +1,82 @@
+:root {
+  /*set color global variables*/
+  --primary-dark: #323232;
+  --primary-light: #ede1d1;
+  --secondary-dark: #525e75;
+  --secondary-light: #fefefe;
+  --burgandy: #5c1c1c;
+  --black: #000000;
+  --white: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  /*css reset*/
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  /*footer support*/
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /*overall document settings*/
+  background-color: var(--secondary-light);
+  color: var(--primary-dark);
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+
+  /*footer support*/
+  margin-bottom: 100px;
+}
+
+
+/*main body*/
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/*footer*/
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.fa-github,
+.fa-heart,
+.fa-linkedin {
+  color: var(--primary-dark);
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover,
+.fa-linkedin:hover {
+  transform: rotateY(360deg) scale(1.4);
+  color: var(--burgandy);
+}
+
+.fa-heart:hover {
+  transform: scale(1.3);
+  color: var(--burgandy);
+}
+
+/*media queries*/
