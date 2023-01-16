@@ -35,14 +35,37 @@ body {
   margin-bottom: 100px;
 }
 
+.psa {
+  color: green;
+  text-align: center;
+}
 
 /*main body*/
 
 .main {
+  max-width: 1000px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
+  border: 2px solid red;
+}
+
+.sidebar {
+  display: flex;
+  width: 500px;
+  border: 2px solid blue;
+}
+
+.content {
+  width: 600px;
+  padding: 20px;
+  border: 2px solid green;
+}
+
+#mt-rainier-img {
+  width: 100%;
+  height: fit-content;
 }
 
 /*footer*/
