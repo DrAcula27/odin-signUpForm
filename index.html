@@ -14,72 +14,127 @@
     ></script>
   </head>
   <body>
-    <main class="main">
-      <div class="sidebar">
-        <img
-          id="mt-rainier-img"
-          src="./assets/mtRainier.jpg"
-          alt="pine trees in front of mount rainier"
-        />
-      </div>
-      <div class="content">
-        <div class="intro-text">
-          <h2 class="psa">This is not a real online service!</h2>
-          <h2>
-            You know you need something like this in your life to help you
-            realize your deepest dreams.
-          </h2>
-          <h2>Sign up <em>now</em> to get started.</h2>
-          <br />
-          <h2>You <em>know</em> you want to.</h2>
+    <div class="content">
+      <section class="image-sidebar">
+        <div class="image-banner">
+          <img
+            src="https://cdn.statically.io/gh/TheOdinProject/curriculum/5f37d43908ef92499e95a9b90fc3cc291a95014c/html_css/project-sign-up-form/odin-lined.png"
+            alt="Odin Logo"
+          />
+          ODIN
         </div>
-        <div class="form">
-          <form action="#">
+        <p class="image-attribution">
+          Photo by
+          <a href="https://unsplash.com/@fffunction">fffunction studio</a>
+          on
+          <a href="https://unsplash.com/photos/IrWgzQ_Y_zg">Unsplash</a>
+        </p>
+      </section>
+      <section class="main-content">
+        <p>This is not a real online service!</p>
+        <p>
+          You know you need something like this in your life to help you realize
+          your deepest dreams. Sign up <em>now</em> to get started.
+        </p>
+        <p>You <em>know</em> you want to.</p>
+        <form action="#" method="get">
+          <section class="user-inputs-container">
             <h2>Let's do this!</h2>
-            <label for="first_name">First Name:</label>
-            <input
-              type="text"
-              name="first_name"
-              id="first_name"
-              placeholder="First Name"
-            />
-            <label for="last_name">Last Name:</label>
-            <input
-              type="text"
-              name="last_name"
-              id="last_name"
-              placeholder="Last Name"
-            />
-            <label for="email">Email Address:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="email@example.com"
-            />
-            <label for="phone_number">Phone Number:</label>
-            <input
-              type="tel"
-              id="phone_number"
-              name="phone_number"
-              placeholder="123-456-7890"
-            />
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" />
-            <label for="confirm_password">Confirm Password:</label>
-            <input
-              type="password"
-              id="confirm_password"
-              name="confirm_password"
-            />
-          </form>
-        </div>
-        <div class="submit">
-          <button>Create Account</button>
-          <p>Already have one? <a href="#">Log in</a></p>
-        </div>
-      </div>
-    </main>
+            <p class="required-info">
+              Required fields are followed by an:
+              <strong><span aria-label="required">*</span></strong>
+            </p>
+            <div class="inputs">
+              <div>
+                <div>
+                  <label for="first-name"
+                    ><span>FIRST NAME</span>
+                    <strong
+                      ><span aria-label="required">*</span></strong
+                    > </label
+                  ><input
+                    type="text"
+                    id="first-name"
+                    name="first-name"
+                    minlength="3"
+                  />
+                </div>
+                <div>
+                  <label for="last-name"
+                    ><span>LAST NAME</span>
+                    <strong
+                      ><span aria-label="required">*</span></strong
+                    > </label
+                  ><input
+                    type="text"
+                    id="last-name"
+                    name="last-name"
+                    minlength="3"
+                  />
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label for="email"
+                    ><span>EMAIL</span>
+                    <strong
+                      ><span aria-label="required">*</span></strong
+                    > </label
+                  ><input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="email@example.com"
+                  />
+                </div>
+                <div>
+                  <label for="phone-number">PHONE NUMBER</label>
+                  <input
+                    type="tel"
+                    id="phone-number"
+                    name="phone-number"
+                    placeholder="123-867-5309"
+                  />
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label for="password"
+                    ><span>PASSWORD</span>
+                    <strong
+                      ><span aria-label="required">*</span></strong
+                    > </label
+                  ><input
+                    type="password"
+                    id="password"
+                    name="password"
+                    minlength="8"
+                  />
+                  <p class="pass-info">Must contain 8 or more characters</p>
+                  <p class="pass-info">Must contain at least one number</p>
+                </div>
+                <div>
+                  <label for="confirm-password"
+                    ><span>CONFIRM PASSWORD</span>
+                    <strong
+                      ><span aria-label="required">*</span></strong
+                    > </label
+                  ><input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm-password"
+                    minlength="8"
+                  />
+                  <p class="error-message hidden">Passwords do not match</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <button type="submit" id="submit">Create Account</button>
+        </form>
+        <p class="log-in">Already have an account? <a href="#">Log In</a></p>
+      </section>
+    </div>
     <footer class="footer">
       <p>
         ©

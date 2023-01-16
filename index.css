@@ -1,12 +1,11 @@
 :root {
-  /*set color global variables*/
-  --primary-dark: #323232;
-  --primary-light: #ede1d1;
-  --secondary-dark: #525e75;
-  --secondary-light: #fefefe;
-  --burgandy: #5c1c1c;
-  --black: #000000;
-  --white: #ffffff;
+  /*set global variables*/
+  --dark-gray: #323232;
+  --green: #596d48;
+  --blue: #6d8bdf;
+  --light-gray: #f9fafb;
+  --red: #c03535;
+  --left-space: 48px;
 }
 
 *,
@@ -26,8 +25,8 @@ html {
 
 body {
   /*overall document settings*/
-  background-color: var(--secondary-light);
-  color: var(--primary-dark);
+  background-color: white;
+  color: var(--dark-gray);
   font-family: "Roboto", sans-serif;
   line-height: 1.6;
 
@@ -35,37 +34,178 @@ body {
   margin-bottom: 100px;
 }
 
-.psa {
-  color: green;
-  text-align: center;
+@font-face {
+  font-family: "Norse Bold";
+  src: url("./assets/Norse-Bold.otf");
 }
 
 /*main body*/
 
-.main {
-  max-width: 1000px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  border: 2px solid red;
-}
-
-.sidebar {
-  display: flex;
-  width: 500px;
-  border: 2px solid blue;
-}
-
 .content {
-  width: 600px;
-  padding: 20px;
-  border: 2px solid green;
+  min-height: 100vh;
+  display: flex;
 }
 
-#mt-rainier-img {
+.image-sidebar {
+  background-position: center center;
+  background-image: url("./assets/mtRainier.jpg");
+  background-size: cover;
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--light-gray);
+  text-align: center;
+}
+
+a {
+  color: var(--light-gray);
+}
+
+.image-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Norse Bold";
+  font-size: 6em;
+  margin-top: 30vh;
+  padding: 16px 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.image-banner img {
+  height: 140px;
+}
+
+.image-attribution {
+  font-size: 1em;
+  padding-bottom: 10px;
+}
+
+.main-content {
+  flex: 5;
+  background-color: var(--light-gray);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-content > p {
+  font-size: 1.25em;
+  font-weight: bold;
+  max-width: 70%;
+  margin-left: var(--left-space);
+  margin-bottom: 8px;
+}
+
+.main-content p:first-child {
+  color: var(--red);
+}
+
+.user-inputs-container {
+  color: var(--dark-gray);
+  background-color: white;
+  margin-top: 32px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: var(--left-space);
+  box-shadow: 1px 2px 3px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-inputs-container h2 {
+  font-size: 1.25em;
+  font-weight: bold;
+}
+
+.user-inputs-container .required-info {
+  font-size: 0.85em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.user-inputs-container label {
+  font-size: 0.75em;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.user-inputs-container input {
+  box-sizing: border-box;
+  border: 1px solid var(--blue);
+  border-radius: 4px;
+  padding: 4px 8px;
   width: 100%;
-  height: fit-content;
+  font-size: 1em;
+  margin-right: 32px;
+}
+
+.inputs > div {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 84px;
+  row-gap: 18px;
+  margin-bottom: 18px;
+}
+
+.inputs label {
+  display: block;
+}
+
+input:focus {
+  border: 1px solid var(--blue);
+  box-shadow: 2px 1px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+input:invalid {
+  border: 1px solid var(--red);
+  background-color: rgba(192, 53, 53, 0.1);
+}
+
+input:valid {
+  border: 1px solid var(--green);
+  background-color: rgba(89, 109, 72, 0.1);
+}
+
+.pass-info {
+  margin-top: 0;
+  font-size: 0.8em;
+  color: var(--dark-gray);
+}
+
+.error-message {
+  margin-top: 0;
+  font-size: 0.8em;
+  color: var(--red);
+}
+
+.hidden {
+  display: none;
+}
+
+#submit {
+  margin-left: var(--left-space);
+  margin-top: 32px;
+  border: none;
+  background-color: var(--green);
+  padding: 12px 48px;
+  border-radius: 8px;
+  box-shadow: 2px 5px 5px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  color: var(--light-gray);
+  font-weight: 700;
+  font-size: 1em;
+}
+
+p.log-in {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-top: 32px;
+}
+
+.log-in a {
+  color: var(--green);
+  font-weight: bold;
+  text-decoration: none;
 }
 
 /*footer*/
@@ -86,7 +226,7 @@ body {
 .fa-github,
 .fa-heart,
 .fa-linkedin {
-  color: var(--primary-dark);
+  color: var(--green);
   font-size: 24px;
   transition: transform 0.3s ease-in-out;
 }
@@ -94,12 +234,10 @@ body {
 .fa-github:hover,
 .fa-linkedin:hover {
   transform: rotateY(360deg) scale(1.4);
-  color: var(--burgandy);
+  color: var(--green);
 }
 
 .fa-heart:hover {
   transform: scale(1.3);
-  color: var(--burgandy);
+  color: var(--green);
 }
-
-/*media queries*/
