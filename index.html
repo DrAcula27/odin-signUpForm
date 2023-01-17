@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign-up Form</title>
     <link rel="stylesheet" href="./index.css" />
-    <script type="text/javascript" src="./script.js" defer></script>
+    <script type="text/javascript" src="./index.js" defer></script>
     <!--font-awesome import for icons-->
     <script
       src="https://kit.fontawesome.com/940af2685d.js"
@@ -15,13 +15,14 @@
   </head>
   <body>
     <div class="content">
+      <!-- SIDEBAR -->
       <section class="image-sidebar">
         <div class="image-banner">
           <img
             src="https://cdn.statically.io/gh/TheOdinProject/curriculum/5f37d43908ef92499e95a9b90fc3cc291a95014c/html_css/project-sign-up-form/odin-lined.png"
             alt="Odin Logo"
           />
-          ODIN
+          <span class="image-banner-text">ODIN</span>
         </div>
         <p class="image-attribution">
           Photo by
@@ -30,23 +31,26 @@
           <a href="https://unsplash.com/photos/IrWgzQ_Y_zg">Unsplash</a>
         </p>
       </section>
+      <!-- CONTENT -->
       <section class="main-content">
-        <p>This is not a real online service!</p>
+        <p id="psa">This is not a real online service!</p>
         <p>
           You know you need something like this in your life to help you realize
           your deepest dreams. Sign up <em>now</em> to get started.
         </p>
         <p>You <em>know</em> you want to.</p>
-        <form action="#" method="get">
+        <!-- FORM -->
+        <form id="form">
           <section class="user-inputs-container">
             <h2>Let's do this!</h2>
             <p class="required-info">
-              Required fields are followed by an:
+              Required fields are followed by an
               <strong><span aria-label="required">*</span></strong>
             </p>
             <div class="inputs">
               <div>
                 <div>
+                  <!-- FIRST NAME -->
                   <label for="first-name"
                     ><span>FIRST NAME</span>
                     <strong
@@ -56,10 +60,15 @@
                     type="text"
                     id="first-name"
                     name="first-name"
-                    minlength="3"
+                    placeholder="Please type your first name"
+                    maxlength="255"
+                    title="First name can only contain letters"
+                    pattern="^[^0-9]+$"
                   />
+                  <p class="error-message hidden">Can only contain letters</p>
                 </div>
                 <div>
+                  <!-- LAST NAME -->
                   <label for="last-name"
                     ><span>LAST NAME</span>
                     <strong
@@ -69,12 +78,17 @@
                     type="text"
                     id="last-name"
                     name="last-name"
-                    minlength="3"
+                    placeholder="Please type your last name"
+                    maxlength="255"
+                    title="Last name can only contain letters"
+                    pattern="^[^0-9]+$"
                   />
+                  <p class="error-message hidden">Can only contain letters</p>
                 </div>
               </div>
               <div>
                 <div>
+                  <!-- EMAIL -->
                   <label for="email"
                     ><span>EMAIL</span>
                     <strong
@@ -85,20 +99,26 @@
                     id="email"
                     name="email"
                     placeholder="email@example.com"
+                    title="Please enter your email address"
                   />
                 </div>
                 <div>
+                  <!-- PHONE NUMBER -->
                   <label for="phone-number">PHONE NUMBER</label>
                   <input
                     type="tel"
                     id="phone-number"
                     name="phone-number"
                     placeholder="123-867-5309"
+                    title="Please enter your 10-digit phone number"
+                    pattern="^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$"
                   />
+                  <p class="error-message hidden">Format: 123-456-7890</p>
                 </div>
               </div>
               <div>
                 <div>
+                  <!-- PASSWORD -->
                   <label for="password"
                     ><span>PASSWORD</span>
                     <strong
@@ -109,11 +129,36 @@
                     id="password"
                     name="password"
                     minlength="8"
+                    maxlength="32"
+                    placeholder="Enter a password"
+                    title="Please follow password rules below"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,32}$"
+                    onkeyup="checkPasswordMatch();"
                   />
-                  <p class="pass-info">Must contain 8 or more characters</p>
-                  <p class="pass-info">Must contain at least one number</p>
+                  <div id="pass-info">
+                    <p>Password must contain the following:</p>
+                    <p id="length" class="invalid">
+                      Between <b>8 and 32 characters</b>
+                    </p>
+                    <p id="lowercase" class="invalid">
+                      At least one <b>lowercase</b> letter
+                    </p>
+                    <p id="uppercase" class="invalid">
+                      At least one <b>uppercase</b> letter
+                    </p>
+                    <p id="number" class="invalid">
+                      At least one <b>number</b>
+                    </p>
+                    <p id="symbol" class="invalid">
+                      At least one of the symbols:
+                      <br />
+                      &emsp;
+                      <b>! @ # $ % ^ & * _ = + -</b>
+                    </p>
+                  </div>
                 </div>
                 <div>
+                  <!-- CONFIRM PASSWORD -->
                   <label for="confirm-password"
                     ><span>CONFIRM PASSWORD</span>
                     <strong
@@ -124,17 +169,23 @@
                     id="confirm-password"
                     name="confirm-password"
                     minlength="8"
+                    maxlength="32"
+                    placeholder="Confirm your password"
+                    onkeyup="checkPasswordMatch();"
+                    disabled
                   />
-                  <p class="error-message hidden">Passwords do not match</p>
+                  <p id="confirm-pass-p"></p>
                 </div>
               </div>
             </div>
           </section>
+          <!-- SUBMIT BUTTON -->
           <button type="submit" id="submit">Create Account</button>
         </form>
         <p class="log-in">Already have an account? <a href="#">Log In</a></p>
       </section>
     </div>
+    <!-- FOOTER -->
     <footer class="footer">
       <p>
         ©

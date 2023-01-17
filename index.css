@@ -1,3 +1,5 @@
+/* general styles */
+
 :root {
   /*set global variables*/
   --dark-gray: #323232;
@@ -31,7 +33,7 @@ body {
   line-height: 1.6;
 
   /*footer support*/
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 @font-face {
@@ -39,12 +41,12 @@ body {
   src: url("./assets/Norse-Bold.otf");
 }
 
-/*main body*/
-
 .content {
   min-height: 100vh;
   display: flex;
 }
+
+/* sidebar */
 
 .image-sidebar {
   background-position: center center;
@@ -58,7 +60,7 @@ body {
   text-align: center;
 }
 
-a {
+.image-sidebar a {
   color: var(--light-gray);
 }
 
@@ -82,6 +84,8 @@ a {
   padding-bottom: 10px;
 }
 
+/* content */
+
 .main-content {
   flex: 5;
   background-color: var(--light-gray);
@@ -98,9 +102,12 @@ a {
   margin-bottom: 8px;
 }
 
-.main-content p:first-child {
+.main-content #psa {
   color: var(--red);
+  margin-top: 1em;
 }
+
+/* form */
 
 .user-inputs-container {
   color: var(--dark-gray);
@@ -109,7 +116,9 @@ a {
   padding-top: 16px;
   padding-bottom: 16px;
   padding-left: var(--left-space);
-  box-shadow: 1px 2px 3px 4px rgba(0, 0, 0, 0.1);
+
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: 2px -2px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .user-inputs-container h2 {
@@ -118,8 +127,8 @@ a {
 }
 
 .user-inputs-container .required-info {
-  font-size: 0.85em;
-  font-weight: bold;
+  font-size: 0.9em;
+  font-style: italic;
   margin-bottom: 20px;
 }
 
@@ -130,8 +139,8 @@ a {
 }
 
 .user-inputs-container input {
-  box-sizing: border-box;
-  border: 1px solid var(--blue);
+  background-color: var(--light-gray);
+  border: 1px solid var(--dark-gray);
   border-radius: 4px;
   padding: 4px 8px;
   width: 100%;
@@ -151,23 +160,74 @@ a {
   display: block;
 }
 
-input:focus {
-  border: 1px solid var(--blue);
-  box-shadow: 2px 1px 2px 2px rgba(0, 0, 0, 0.1);
-}
-
-input:invalid {
-  border: 1px solid var(--red);
-  background-color: rgba(192, 53, 53, 0.1);
-}
-
 input:valid {
   border: 1px solid var(--green);
   background-color: rgba(89, 109, 72, 0.1);
 }
 
-.pass-info {
-  margin-top: 0;
+input:focus {
+  border: 1px solid var(--blue);
+  background-color: var(--light-gray);
+
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* input styles */
+
+input:focus + label,
+input[required]:valid + label,
+input:not(:placeholder-shown) + label {
+  display: block;
+}
+
+input:invalid {
+  border: 1px solid var(--red);
+  background-color: rgba(185, 35, 38, 0.25);
+}
+
+input:focus:invalid {
+  background-color: transparent;
+  border: 1px solid var(--red);
+}
+
+input:invalid + label {
+  color: var(--red);
+}
+
+input:valid {
+  border: 1px solid var(--green);
+  background-color: rgba(139, 195, 74, 0.25);
+}
+
+input:focus:valid {
+  border: 1px solid var(--green);
+  background-color: transparent;
+}
+input:valid + label {
+  color: var(--green);
+}
+
+input:placeholder-shown {
+  background-color: transparent;
+  border: 1px solid var(--dark-gray);
+}
+
+input::placeholder {
+  color: var(--dark-gray);
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+input:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+#pass-info {
+  margin-top: 0.2em;
   font-size: 0.8em;
   color: var(--dark-gray);
 }
@@ -182,6 +242,26 @@ input:valid {
   display: none;
 }
 
+.valid {
+  color: var(--green);
+}
+
+.valid:before {
+  position: relative;
+  left: -2px;
+  content: "✔";
+}
+
+.invalid {
+  color: var(--red);
+}
+
+.invalid:before {
+  position: relative;
+  left: -2px;
+  content: "✘";
+}
+
 #submit {
   margin-left: var(--left-space);
   margin-top: 32px;
@@ -189,7 +269,10 @@ input:valid {
   background-color: var(--green);
   padding: 12px 48px;
   border-radius: 8px;
-  box-shadow: 2px 5px 5px 4px rgba(0, 0, 0, 0.1);
+
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.1);
+
   cursor: pointer;
   color: var(--light-gray);
   font-weight: 700;
@@ -221,6 +304,10 @@ p.log-in {
   width: 100%;
   padding: 10px;
   font-size: 20px;
+  background-color: var(--light-gray);
+
+  /* offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: 2px -2px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
 .fa-github,
@@ -240,4 +327,27 @@ p.log-in {
 .fa-heart:hover {
   transform: scale(1.3);
   color: var(--green);
+}
+
+@media (max-width: 600px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  .image-banner {
+    margin-top: 0;
+  }
+  .image-banner-text {
+    display: none;
+  }
+  #form > .inputs {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .footer > p {
+    display: none;
+  }
 }
