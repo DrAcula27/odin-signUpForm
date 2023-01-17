@@ -1,3 +1,4 @@
+# The Odin Project - Full Stack JavaScript - Intermediate HTML & CSS - PROJECT: Sign-up Form
 
 ## Project Introduction
 
