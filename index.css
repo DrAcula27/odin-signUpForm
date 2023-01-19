@@ -222,7 +222,7 @@ input:focus::placeholder {
 }
 
 input:disabled {
-  background-color: gray;
+  background-color: rgb(203, 203, 203);
   cursor: not-allowed;
 }
 
