@@ -52,6 +52,7 @@ body {
   background-position: center center;
   background-image: url("./assets/mtRainier.jpg");
   background-size: cover;
+  background-color: var(--green);
   flex: 3;
   display: flex;
   flex-direction: column;
